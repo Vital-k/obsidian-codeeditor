@@ -1,10 +1,10 @@
 {
-	"id": "obsidian-plaintext",
-	"name": "Plaintext",
-	"version": "0.0.2",
+	"id": "obsidian-codeview",
+	"name": "CodeView",
+	"version": "0.0.1",
 	"minAppVersion": "0.12.12",
-	"description": "Allow opening specified files as plaintext.",
-	"author": "dbarenholz",
-	"authorUrl": "https://github.com/dbarenholz/dbarenholz",
+	"description": "Allow opening js and css files.",
+	"author": "zsviczian",
+	"authorUrl": "https://zsolt.blog",
 	"isDesktopOnly": true
 }
