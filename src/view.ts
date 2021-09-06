@@ -7,6 +7,7 @@ export default class CodeView extends MarkdownView  {
   constructor(leaf: WorkspaceLeaf,ext: string) {
     super(leaf);
     this.ext = ext;
+    this.app.workspace.onLayoutReady(()=>{this.contentEl.addClass("CodeView")})
   }
 
   setViewData = (data: string, clear?: boolean): void => {

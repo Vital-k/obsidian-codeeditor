@@ -1,0 +1,11 @@
+.CodeView .CodeMirror-line {
+	display: none;
+}
+
+.CodeView .HyperMD-codeblock-begin {
+	display: none !important;
+}
+
+.CodeView .HyperMD-codeblock:not(.HyperMD-codeblock-begin) {
+	display:block;
+}
