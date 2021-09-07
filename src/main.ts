@@ -1,11 +1,13 @@
 import { Menu, MenuItem, normalizePath, Plugin, TAbstractFile, TFile, WorkspaceLeaf } from "obsidian";
 import CodeView from "./view";
-import { OpenFileDialog} from "./OpenDialog";
+import { CodeViewSettings, DEFAULT_SETTINGS, CodeViewSettingTab } from "./settings";
 
 export default class CodeViewPlugin extends Plugin {
-  private openDialog: OpenFileDialog;
+  public settings: CodeViewSettings;
   
   async onload(): Promise<void> {
+    await this.loadSettings();
+    
     const register = (ext: string) => {
       try {
         this.registerView(ext, (leaf: WorkspaceLeaf, ext?: string)=>{return new CodeView(leaf,ext)});
@@ -18,18 +20,9 @@ export default class CodeViewPlugin extends Plugin {
     register("css");
     this.addFileMenuItem("javascript","js");
     this.addFileMenuItem("css","css");
-    
-    this.openDialog = new OpenFileDialog(this.app);
-    this.addCommand({
-      id: "css-file-open",
-      name: "Open/create css snippet",
-      callback: () => {
-        this.openDialog.start();
-      },
-    });
   }
 
-  addFileMenuItem(cmMode:string, ext: string) {
+  private addFileMenuItem(cmMode:string, ext: string) {
     this.registerEvent(this.app.workspace.on("file-menu", (menu: Menu, file: TFile) => {
       menu.addItem((item: MenuItem) => {
         item.setTitle(`Add ${ext} file`)
@@ -47,7 +40,7 @@ export default class CodeViewPlugin extends Plugin {
     }));  
   }
 
-  getNewUniqueFilepath(basename:string, ext:string, folderpath:string):string {
+  private getNewUniqueFilepath(basename:string, ext:string, folderpath:string):string {
     let fpath = normalizePath(`${folderpath}/${basename}.${ext}`); 
     let i = 0;
     while(this.app.vault.getAbstractFileByPath(fpath)) {
@@ -55,4 +48,36 @@ export default class CodeViewPlugin extends Plugin {
     }
     return fpath;
   }
+  
+  public async runMirror() {
+    //@ts-ignore
+    const configDir = this.app.vault.configDir;
+    //@ts-ignore
+    this.app.vault.adapter.fs.readdir(app.vault.adapter.getFullRealPath(`${this.configDir}/snippets`),"",(e,files)=>{
+      if(e) {
+        console.log(e);
+        return;
+      }
+      files.forEach(async (snippet:string)=>{
+        const snippetPath = `${configDir}/snippets/${snippet}`;
+        const snippetMirrorPath = normalizePath(`${this.setting.mirrorFolderPath}/${snippet}`);
+        const snippetMirrorFile = this.app.vault.getAbstractFileByPath(snippetMirrorPath);
+        const snippetString = await this.app.vault.readRaw(snippetPath);
+        if(!snippetMirrorFile) {
+          this.app.vault.create(snippetMirrorPath,snippetString);
+        }
+        else { 
+          this.app.vault.modify(snippetMirrorFile,snippetString);
+        }
+      });
+    }  
+  }
+  
+  public async saveSettings() {
+    await this.saveData(this.settings);
+  }
+  
+  private async loadSettings() {
+    this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
+  }  
 }
