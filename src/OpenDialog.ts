@@ -1,24 +1,20 @@
 import { 
   App, 
-  FuzzySuggestModal, 
-  TFile 
+  FuzzySuggestModal
 } from "obsidian";
-import CodeViewPlugin from './main';
 
 const EMPTY = "no matching file";
 
-export class OpenFileDialog extends FuzzySuggestModal<TFile> {
+export class OpenFileDialog extends FuzzySuggestModal<string> {
   public app: App;
-  private plugin: CodeViewPlugin;
   private addText: Function;
   private filePath: string;
   private files: string[];
   private configDir: string;
 
-  constructor(app: App, plugin: CodeViewPlugin) {
+  constructor(app: App) {
     super(app);
     this.app = app;
-    this.plugin = plugin;
     //@ts-ignore
     this.configDir = this.app.vault.configDir
   
@@ -48,7 +44,7 @@ export class OpenFileDialog extends FuzzySuggestModal<TFile> {
   }
 
   onChooseItem(item: string, _evt?: MouseEvent | KeyboardEvent): void {
-    const leaf = this.plugin.app.workspace.getLeaf();
+    const leaf = this.app.workspace.getLeaf();
     leaf.setViewState({type:"css",state: {file: this.configDir+"/snippets/"+item}});
   }
 
