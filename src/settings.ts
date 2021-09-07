@@ -11,7 +11,7 @@ export interface CodeViewSettings {
   mirroringEnabled: boolean,
 }
 
-export const DEFAULT_SETTINGS: ExcalidrawSettings = {
+export const DEFAULT_SETTINGS: CodeViewSettings = {
   mirrorFolderPath: 'CodeView_Mirror',
   mirroringEnabled: false,
 }
