@@ -29,7 +29,9 @@ export class OpenFileDialog extends FuzzySuggestModal<TFile> {
       //@ts-ignore
       this.app.vault.adapter.fs.exists(this.app.vault.adapter.getFullRealPath(snippetFolder),async (e) => {
         if(!e) await this.app.vault.createFolder(snippetFolder);
+        //@ts-ignore
         const snippetPath = this.app.vault.adapter.getFullRealPath(configDir+"/snippets/"+this.inputEl.value+".css");
+        //@ts-ignore
         await this.app.vault.adapter.fsPromises.writeFile(snippetPath,"");
         this.onChooseItem(this.inputEl.value+".css");
         this.close();
