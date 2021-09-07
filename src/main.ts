@@ -1,7 +1,10 @@
 import { Menu, MenuItem, normalizePath, Plugin, TAbstractFile, TFile, WorkspaceLeaf } from "obsidian";
 import CodeView from "./view";
+import { OpenFileDialog} from "./OpenDialog";
 
 export default class CodeViewPlugin extends Plugin {
+  private openDialog: OpenFileDialog;
+  
   async onload(): Promise<void> {
     const register = (ext: string) => {
       try {
@@ -14,7 +17,16 @@ export default class CodeViewPlugin extends Plugin {
     register("js");
     register("css");
     this.addFileMenuItem("javascript","js");
-    this.addFileMenuItem("css","css")
+    this.addFileMenuItem("css","css");
+    
+    this.openDialog = new OpenFileDialog(this.app, this);
+    this.addCommand({
+      id: "css-file-open",
+      name: "Open/create css snippet",
+      callback: () => {
+        this.openDialog.start();
+      },
+    });
   }
 
   addFileMenuItem(cmMode:string, ext: string) {
@@ -45,10 +57,3 @@ export default class CodeViewPlugin extends Plugin {
     return fpath;
   }
 }
-
-//const configDir = this.app.vault.configDir
-//this.app.vault.adapter.fs.readdir(app.vault.adapter.getFullRealPath(`${configDir}/snippets`),"",(e,f)=>{
-//   console.log(f)
-//})
-//
-
