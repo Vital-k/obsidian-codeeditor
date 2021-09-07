@@ -11,15 +11,10 @@ export default class CodeView extends MarkdownView  {
   }
 
   setViewData = (data: string, clear?: boolean): void => {
-    let header = null;
     switch(this.file.extension) {
-      case "js": header = "/*\n```javascript*/\n"; break;
-      case "css": header = "/*\n```css*/\n"; break;
+      case "js": this.sourceMode.cmEditor.setOption("mode", "javascript"); break;
+      case "css": this.sourceMode.cmEditor.setOption("mode", "css"); break;
     }
-    
-    if(header && !data.startsWith(header)) {
-      data = header + data;
-    }   
     super.setViewData(data, clear);
   };
 
