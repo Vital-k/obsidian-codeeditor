@@ -59,10 +59,10 @@ export default class CodeViewPlugin extends Plugin {
         return;
       }
       files.forEach(async (snippet:string)=>{
-        const snippetPath = `${configDir}/snippets/${snippet}`;
+        const snippetVaultPath = `${configDir}/snippets/${snippet}`;
         const snippetMirrorPath = normalizePath(`${this.setting.mirrorFolderPath}/${snippet}`);
         const snippetMirrorFile = this.app.vault.getAbstractFileByPath(snippetMirrorPath);
-        const snippetString = await this.app.vault.readRaw(snippetPath);
+        const snippetString = await this.app.vault.readRaw(snippetVaultPath);
         if(!snippetMirrorFile) {
           this.app.vault.create(snippetMirrorPath,snippetString);
         }
