@@ -8,6 +8,40 @@ In settings you can set up a mirror folder for css snippets and themes. With thi
 You can configure the styling of code mirror with a css snippet. More on CodeMirror styling [here](https://codemirror.net/lib/codemirror.css).
 
 ```css
+:root {
+    --cm-keyword: #c792ea;
+    --cm-atom: #f78c6c;
+    --cm-number: #ff5370;
+    --cm-type: #decb6b;
+    --cm-def: #82aaff;
+    --cm-property: #c792ea;
+    --cm-variable: #f07178;
+    --cm-variable-2: #eeffff;
+    --cm-variable-3: #f07178;
+    --cm-definition: #82aaff;
+    --cm-callee: #89ddff;
+    --cm-qualifier: #decb6b;
+    --cm-operator: #89ddff;
+    --cm-hr: #98e342;
+    --cm-link: #696d70;
+    --cm-error-bg: #ff5370;
+    --cm-header: #da7dae;
+    --cm-builtin: #ffcb6b;
+    --cm-meta: #ffcb6b;
+    --cm-matching-bracket: #ffffff;
+    --cm-tag: #ff5370;
+    --cm-tag-in-comment: #ff5370;
+    --cm-string-2: #f07178;
+    --cm-bracket: #ff5370;
+    --cm-comment: #676e95;
+    --cm-string: #c3e88d;
+    --cm-attribute: #c792ea;
+    --cm-attribute-in-comment: #c792ea;
+    --cm-background-color: #292d3e;
+    --cm-active-line-background-color: #353a50;
+    --cm-foreground-color: #d4d4d4;
+}
+
 .CodeView .cm-header {color: var(--cm-header) !important;}
 .CodeView .cm-negative {color: var(--cm-negative) !important;}
 .CodeView .cm-positive {color: var(--cm-positive) !important;}
