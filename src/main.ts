@@ -46,3 +46,9 @@ export default class CodeViewPlugin extends Plugin {
   }
 }
 
+//const configDir = this.app.vault.configDir
+//this.app.vault.adapter.fs.readdir(app.vault.adapter.getFullRealPath(`${configDir}/snippets`),"",(e,f)=>{
+//   console.log(f)
+//})
+//
+
