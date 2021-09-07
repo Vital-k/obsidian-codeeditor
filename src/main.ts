@@ -51,8 +51,7 @@ export default class CodeViewPlugin extends Plugin {
     let fpath = normalizePath(`${folderpath}/${basename}.${ext}`); 
     let i = 0;
     while(this.app.vault.getAbstractFileByPath(fpath)) {
-      fpath = normalizePath(`${folderpath}/${basename}_${i}.${ext}`);
-      i++;
+      fpath = normalizePath(`${folderpath}/${basename}_${i++}.${ext}`);
     }
     return fpath;
   }
