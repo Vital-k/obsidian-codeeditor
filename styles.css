@@ -1,11 +1,37 @@
-.CodeView .CodeMirror-line {
-	display: none;
-}
+/*https://codemirror.net/lib/codemirror.css*/
+.CodeView .cm-header {color: blue;}
+.CodeView .cm-quote {color: #090;}
+.CodeView .cm-negative {color: #d44;}
+.CodeView .cm-positive {color: #292;}
 
-.CodeView .HyperMD-codeblock-begin {
-	display: none !important;
-}
+.CodeView .cm-header {font-weight: bold;} 
+.CodeView .cm-strong {font-weight: bold;}
+.CodeView .cm-em {font-style: italic;}
+.CodeView .cm-link {text-decoration: underline;}
+.CodeView .cm-strikethrough {text-decoration: line-through;}
 
-.CodeView .HyperMD-codeblock:not(.HyperMD-codeblock-begin) {
-	display:block;
-}
+.CodeView .cm-keyword {color: #708;}
+.CodeView .cm-atom {color: #219;}
+.CodeView .cm-number {color: #164;}
+.CodeView .cm-def {color: #00f;}
+.CodeView .cm-variable {}
+.CodeView .cm-punctuation {}
+.CodeView .cm-property {}
+.CodeView .cm-operator {}
+.CodeView .cm-variable-2 {color: #05a;}
+.CodeView .cm-variable-3 {color: #085;} 
+.CodeView .cm-type {color: #085;}
+.CodeView .cm-comment {color: #a50;}
+.CodeView .cm-string {color: #a11;}
+.CodeView .cm-string-2 {color: #f50;}
+.CodeView .cm-meta {color: #555;}
+.CodeView .cm-qualifier {color: #555;}
+.CodeView .cm-builtin {color: #30a;}
+.CodeView .cm-bracket {color: #997;}
+.CodeView .cm-tag {color: #170;}
+.CodeView .cm-attribute {color: #00c;}
+.CodeView .cm-hr {color: #999;}
+.CodeView .cm-link {color: #00c;}
+
+.CodeView .cm-error {color: #f00;}
+.CodeView .cm-invalidchar {color: #f00;}
