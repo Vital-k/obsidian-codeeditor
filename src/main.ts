@@ -19,7 +19,7 @@ export default class CodeViewPlugin extends Plugin {
     this.addFileMenuItem("javascript","js");
     this.addFileMenuItem("css","css");
     
-    this.openDialog = new OpenFileDialog(this.app, this);
+    this.openDialog = new OpenFileDialog(this.app);
     this.addCommand({
       id: "css-file-open",
       name: "Open/create css snippet",
