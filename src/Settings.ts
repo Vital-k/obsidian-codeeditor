@@ -35,7 +35,7 @@ export class CodeViewSettingTab extends PluginSettingTab {
 
   display(): void {
     //@ts-ignore
-    const configDir = this.app.vault.configDir;
+    const configDir = this.plugin.app.vault.configDir;
     this.requestMirrorRefresh = false;
     let {containerEl} = this;
     this.containerEl.empty();
