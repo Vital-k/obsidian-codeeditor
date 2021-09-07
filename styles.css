@@ -1,8 +1,7 @@
 /*https://codemirror.net/lib/codemirror.css*/
-.CodeView .cm-header {color: blue;}
-.CodeView .cm-quote {color: #090;}
-.CodeView .cm-negative {color: #d44;}
-.CodeView .cm-positive {color: #292;}
+.CodeView .cm-header {color: var(--cm-header);}
+.CodeView .cm-negative {color: var(--cm-negative);}
+.CodeView .cm-positive {color: var(--cm-positive);}
 
 .CodeView .cm-header {font-weight: bold;} 
 .CodeView .cm-strong {font-weight: bold;}
@@ -10,28 +9,32 @@
 .CodeView .cm-link {text-decoration: underline;}
 .CodeView .cm-strikethrough {text-decoration: line-through;}
 
-.CodeView .cm-keyword {color: #708;}
-.CodeView .cm-atom {color: #219;}
-.CodeView .cm-number {color: #164;}
-.CodeView .cm-def {color: #00f;}
-.CodeView .cm-variable {}
-.CodeView .cm-punctuation {}
-.CodeView .cm-property {}
-.CodeView .cm-operator {}
-.CodeView .cm-variable-2 {color: #05a;}
-.CodeView .cm-variable-3 {color: #085;} 
-.CodeView .cm-type {color: #085;}
-.CodeView .cm-comment {color: #a50;}
-.CodeView .cm-string {color: #a11;}
-.CodeView .cm-string-2 {color: #f50;}
-.CodeView .cm-meta {color: #555;}
-.CodeView .cm-qualifier {color: #555;}
-.CodeView .cm-builtin {color: #30a;}
-.CodeView .cm-bracket {color: #997;}
-.CodeView .cm-tag {color: #170;}
-.CodeView .cm-attribute {color: #00c;}
-.CodeView .cm-hr {color: #999;}
-.CodeView .cm-link {color: #00c;}
+.CodeView .cm-keyword {color: var(--cm-keyword);}
+.CodeView .cm-atom {color: var(--cm-atom);}
+.CodeView .cm-number {color: var(--cm-number);}
+.CodeView .cm-def {color: var(--cm-def);}
+.CodeView .cm-variable {color: var(--cm-variable);}
+.CodeView .cm-property {color: var(--cm-property);}
+.CodeView .cm-operator {color: var(--cm-operator);}
+.CodeView .cm-variable-2 {color: var(--cm-variable-2);}
+.CodeView .cm-variable-3 {color: var(--cm-variable-3);} 
+.CodeView .cm-type {color: var(--cm-type);}
+.CodeView .cm-comment {color: var(--cm-comment);}
+.CodeView .cm-string {color: var(--cm-string);}
+.CodeView .cm-string-2 {color: var(--cm-string-2);}
+.CodeView .cm-meta {color: var(--cm-meta);}
+.CodeView .cm-qualifier {color: var(--cm-qualifier);}
+.CodeView .cm-builtin {color: var(--cm-builtin);}
+.CodeView .cm-bracket {color: var(--cm-bracket);}
+.CodeView .cm-tag {color: var(--cm-tag);}
+.CodeView .cm-attribute {color: var(--cm-attribute);}
+.CodeView .cm-hr {color: var(--cm-hr);}
+.CodeView .cm-link {color: var(--cm-link);}
+.CodeView .cm-error {color: var(--cm-error); background: var(--cm-error-bg);}
+.CodeView .cm-invalidchar {color: var(--cm-invalidchar);}
 
-.CodeView .cm-error {color: #f00;}
-.CodeView .cm-invalidchar {color: #f00;}
+.CodeView .cm-active-line-background-color {background: var(--cm-active-line-background-color);}
+.CodeView .cm-attribute-in-comment {color: var(--cm-attribute-in-comment);}
+.CodeView .cm-callee {color: var(--cm-callee);}
+.CodeView .cm-definition {color: var(--cm-definition);}
+.CodeView .cm-tag-in-comment {color: var(--cm-tag-in-comment);}
