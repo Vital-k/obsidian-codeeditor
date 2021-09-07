@@ -21,28 +21,28 @@ export default class CodeViewPlugin extends Plugin {
     this.registerEvent(this.app.workspace.on("file-menu", (menu: Menu, file: TFile) => {
       menu.addItem((item: MenuItem) => {
         item.setTitle(`Add ${ext} file`)
-          .onClick(evt => {
+          .onClick(async (evt) => {
             let folderpath = file.path;
             if(file instanceof TFile) {
               folderpath = normalizePath(file.path.substr(0,file.path.lastIndexOf(file.name)));  
             }
-            this.app.vault.create(this.getNewUniqueFilepath(`untitled.${ext}`,folderpath),"/*\n```"+cmMode+"*/\n");
+            const fpath = this.getNewUniqueFilepath("untitled",ext,folderpath);
+            await this.app.vault.create(fpath,"");
+            const leaf = this.app.workspace.getLeaf();
+            leaf.setViewState({type:ext,state: {file: fpath}});
           })
       });      
     }));  
   }
 
-  getNewUniqueFilepath(filename:string, folderpath:string):string {
-    let fname = normalizePath(folderpath +'/'+ filename); 
-    let file:TAbstractFile = this.app.vault.getAbstractFileByPath(fname);
+  getNewUniqueFilepath(basename:string, ext:string, folderpath:string):string {
+    let fpath = normalizePath(`${folderpath}/${basename}.${ext}`); 
     let i = 0;
-    while(file) {
-      fname = normalizePath(folderpath + '/' + filename.slice(0,filename.lastIndexOf("."))+"_"+i+filename.slice(filename.lastIndexOf(".")));
+    while(this.app.vault.getAbstractFileByPath(fpath)) {
+      fpath = normalizePath(`${folderpath}/${basename}_${i}.${ext}`);
       i++;
-      file = this.app.vault.getAbstractFileByPath(fname);
     }
-    return fname;
+    return fpath;
   }
-  
 }
 
