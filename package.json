@@ -1,6 +1,6 @@
 {
   "name": "obsidian-codeview",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Allow opening js and css files.",
   "main": "main.js",
   "scripts": {
