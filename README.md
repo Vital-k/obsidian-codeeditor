@@ -1,8 +1,10 @@
+# JS and CSS Editor
+
+A minimalistic solution to view js and css files in Obsidian. Including support for editing css snippets and themes from the Obsidian config folder.
+
 ![image](https://user-images.githubusercontent.com/14358394/132396744-05ee5a1e-c6e5-489c-adf3-446cd88b9935.png)
 ![image](https://user-images.githubusercontent.com/14358394/132396815-a7edf2c8-e5a5-4a6d-9b88-74ad4af25221.png)
 ![image](https://user-images.githubusercontent.com/14358394/132872044-d48eb232-d5f0-4fa1-8c75-18765c70a855.png)
-
-A minimalistic solution to view js and css files in Obsidian.
 
 In settings you can set up a mirror folder for css snippets and themes. With this, you can make them available for edit within Obsidian.
 
