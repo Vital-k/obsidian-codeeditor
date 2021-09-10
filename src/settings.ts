@@ -51,7 +51,7 @@ export class CodeViewSettingTab extends PluginSettingTab {
     let mirrorToggle:ToggleComponent;
     new Setting (containerEl)
       .setName ("Enable css snippets and themes mirroring") 
-      .setDesc (`If you turn this on then ${configDir}/snippets and ${configDir}/themes will be copied to the mirror folder specified below. The ` + 
+      .setDesc (`If you turn this on then "${configDir}/snippets" and "${configDir}/themes" will be copied to the mirror folder specified below. The ` + 
                 `mirror does not actively monitor the snippets and themes folders. If you place new files in snippets or themes these will be picked up ` +
                 `when you restart Obsidian, or when you run "Refresh mirror of snippets and themes" from Command Palette`)
       .addToggle (toggle => {
@@ -67,7 +67,7 @@ export class CodeViewSettingTab extends PluginSettingTab {
 
     new Setting (containerEl)
     .setName ("CSS snippet mirror folder") 
-    .setDesc (`Folder to use as a mirror of the ${configDir}/snippets and ${configDir}/themes css files.`)
+    .setDesc (`Folder to use as a mirror of the "${configDir}/snippets" and "${configDir}/themes" css files.`)
     .addText (text => text
       .setPlaceholder ('Mirror folder path')
       .setValue (this.plugin.settings.mirrorFolderPath)
@@ -80,10 +80,10 @@ export class CodeViewSettingTab extends PluginSettingTab {
     new Setting (containerEl)
       .setName ("Enable file event handlers for snippets and themes") 
       .setDesc (`⚠⚡⚠⚡⚠⚡ Make sure you have a backup of your snippets and themes. Only turn this on if you know what you are doing. \n` + 
-                `If you delete a file from your mirror folder it will be deleted from ${configDir}/snippets or ${configDir}/themes respectively. `+
-                `Note that moving a file out of the mirror folder will also delete the snippet or theme from the ${configDir}/ . Moving it back will create it in the ${configDir}/ folder. ` +
+                `If you delete a file from your mirror folder it will be deleted from "${configDir}/snippets" or "${configDir}/themes" respectively. `+
+                `Note that moving a file out of the mirror folder will also delete the snippet or theme from the "${configDir}/" folder. Moving it back will create it in the "${configDir}/" folder. ` +
                 `If you rename a file in the mirror folder, the snippet or theme file will be renamed as well. ` + 
-                `If you rename, move, or delete the complete mirror folder, the snippet and theme files will get deleted. If you move the mirror folder back to the configured location, files will be created again in the ${configDir}/ folders.` +
+                `If you rename, move, or delete the complete mirror folder, the snippet and theme files will get deleted. If you move the mirror folder back to the configured location, files will be created again in the "${configDir}/" folders.` +
                 `The file event handlers will only run if both mirroring is enabled and event handlers are enabled. `)
       .addToggle (toggle => toggle
         .setValue (this.plugin.settings.fileEventHandlerEnabled)
