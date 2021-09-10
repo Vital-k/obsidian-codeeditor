@@ -1,5 +1,6 @@
 ![image](https://user-images.githubusercontent.com/14358394/132396744-05ee5a1e-c6e5-489c-adf3-446cd88b9935.png)
 ![image](https://user-images.githubusercontent.com/14358394/132396815-a7edf2c8-e5a5-4a6d-9b88-74ad4af25221.png)
+![image](https://user-images.githubusercontent.com/14358394/132872044-d48eb232-d5f0-4fa1-8c75-18765c70a855.png)
 
 A minimalistic solution to view js and css files in Obsidian.
 
@@ -7,7 +8,9 @@ In settings you can set up a mirror folder for css snippets and themes. With thi
 
 You can configure the styling of code mirror with a css snippet. More on CodeMirror styling [here](https://codemirror.net/lib/codemirror.css).
 
-### base for your code-view.css snippet
+### A skeleton for your code-view.css snippet
+You can use this code to configure colors for CodeView.
+
 ```css
 :root {
     --cm-keyword: #c792ea;
