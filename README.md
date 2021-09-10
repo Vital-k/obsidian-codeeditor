@@ -1,4 +1,4 @@
-# JS and CSS Editor
+# (Jacvascript) \*.JS and (Style) \*.CSS Editor
 
 A minimalistic solution to view js and css files in Obsidian. Including support for editing css snippets and themes from the Obsidian config folder.
 
