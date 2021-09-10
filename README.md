@@ -7,6 +7,7 @@ In settings you can set up a mirror folder for css snippets and themes. With thi
 
 You can configure the styling of code mirror with a css snippet. More on CodeMirror styling [here](https://codemirror.net/lib/codemirror.css).
 
+### base for your code-view.css snippet
 ```css
 :root {
     --cm-keyword: #c792ea;
@@ -41,7 +42,12 @@ You can configure the styling of code mirror with a css snippet. More on CodeMir
     --cm-active-line-background-color: #353a50;
     --cm-foreground-color: #d4d4d4;
 }
+```
 
+### CodeView styling
+Note how the ContentEl for the CodeView markdown view receives a .CodeView class. You can use this to specifically target styling of CodeView.
+
+```css
 .CodeView .cm-header {color: var(--cm-header) !important;}
 .CodeView .cm-negative {color: var(--cm-negative) !important;}
 .CodeView .cm-positive {color: var(--cm-positive) !important;}
