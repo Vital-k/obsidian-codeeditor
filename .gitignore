@@ -8,7 +8,7 @@ package-lock.json
 
 # build
 #main.js
-*.js.map
+#*.js.map
 
 # obsidian
-data.json
+#data.json
